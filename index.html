@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: #0d0d0d;
+            background: linear-gradient(to right, #0d0d0d, #1a1a1a); /* Gradient background */
             color: #fff;
             margin: 0;
             padding: 0;
@@ -77,28 +77,9 @@
             color: #8a2be2;
         }
 
-        /* Discord Widget Styling */
-        .discord-widget {
-            margin-top: 30px;
-        }
-
-        /* Floating Animation for Discord Widget */
-        .floating {
-            animation: float 4s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
         /* Project Cards */
         .project-card {
-            background: #292929;
+            background: linear-gradient(to right, #00ffff, #8a2be2); /* Gradient on project cards */
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
@@ -107,7 +88,7 @@
 
         .project-title {
             font-size: 1.8em;
-            color: #00ffff;
+            color: #292929; /* Dark text color for contrast */
         }
     </style>
 </head>
@@ -168,16 +149,12 @@
         <div class="card">
             <h2>Pella.app</h2>
             <div class="content">
-                <p class="info-title">Hosting Service:</p>
-                <p>Offering easy and efficient bot hosting solutions with a user-friendly interface.</p>
+                <p class="info-title">pella.app</p>
+                <p>Discover the power of pella.app's hosting service! For Minecraft servers or Discord bots, pella.app has the solutions you need to make your digital dreams a reality.
+                With reliable 24/7 hosting, easy setup, and automatic dependency management.
+                pella.app makes it easier than ever to get your projects online. Try pella.app today and experience the best in hosting!</p>
                 <p>Currently rated 4.5 stars on Trustpilot!</p>
             </div>
-        </div>
-
-        <!-- Discord Guild Widget -->
-        <div class="card discord-widget floating">
-            <h2>Join My Discord Guild</h2>
-            <iframe src="https://discord.com/widget?id=1293950040871538748&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
         </div>
     </div>
 </body>
