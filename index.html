@@ -25,11 +25,12 @@
 
         /* Card Styling */
         .card {
+            background: linear-gradient(to right, rgba(26, 26, 26, 0.8), rgba(0, 0, 0, 0.8)); /* Gradient for cards */
             border-radius: 15px;
             padding: 30px;
             margin-bottom: 30px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease-in-out, background 0.5s; /* Add transition for background */
+            transition: transform 0.3s ease-in-out;
         }
 
         .card:hover {
@@ -79,22 +80,22 @@
 
         /* Project Cards */
         .project-card {
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)); /* Updated to blend with background */
+            background: linear-gradient(to right, rgba(0, 255, 255, 0.7), rgba(0, 0, 0, 0.9)); /* Gradient for project cards */
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             animation: move 3s linear infinite; /* Adding the same moving effect */
-            transition: background 0.5s; /* Smooth transition for background change */
+            transition: background 0.3s ease-in-out; /* Smooth transition for background change */
         }
 
         .project-card:hover {
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1)); /* Darker gradient on hover */
+            background: linear-gradient(to right, rgba(0, 255, 255, 0.9), rgba(255, 0, 255, 0.9)); /* Change gradient on hover */
         }
 
         .project-title {
             font-size: 1.8em;
-            color: #ffffff; /* White text for contrast */
+            color: #292929; /* Dark text color for contrast */
         }
     </style>
 </head>
