@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asteral Portfolio</title>
+    <title>Asteral Personal Portfolio</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Add your favicon here -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -30,12 +30,13 @@
             padding: 30px;
             margin-bottom: 30px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.3s ease-in-out, background 0.5s; /* Add transition for background */
         }
 
         .card:hover {
             transform: scale(1.05);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(to right, rgba(255, 0, 255, 0.8), rgba(0, 0, 0, 0.9)); /* Gradient on hover */
         }
 
         /* Section Titles */
@@ -80,17 +81,17 @@
 
         /* Project Cards */
         .project-card {
-            background: linear-gradient(to right, rgba(0, 255, 255, 0.7), rgba(0, 0, 0, 0.9)); /* Gradient for project cards */
+            background: linear-gradient(to right, rgba(0, 255, 255, 0.7), rgba(0, 0, 0, 0.9)); /* Initial gradient for project cards */
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             animation: move 3s linear infinite; /* Adding the same moving effect */
-            transition: background 0.3s ease-in-out; /* Smooth transition for background change */
+            transition: background 0.5s; /* Smooth transition for background change */
         }
 
         .project-card:hover {
-            background: linear-gradient(to right, rgba(0, 255, 255, 0.9), rgba(255, 0, 255, 0.9)); /* Change gradient on hover */
+            background: linear-gradient(to right, rgba(255, 0, 255, 0.7), rgba(0, 0, 0, 0.9)); /* Gradient on hover */
         }
 
         .project-title {
