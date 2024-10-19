@@ -3,154 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Most Fancy Website Ever</title>
+    <title>Fancy Developer Portfolio</title>
     <style>
-        /* Fancy Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #ff6ec4, #7873f5);
+            font-family: 'Arial', sans-serif;
+            background: #1e1e2f;
             color: white;
             margin: 0;
-            overflow-x: hidden;
+            padding: 0;
             text-align: center;
         }
 
-        /* Parallax Background */
-        .parallax {
-            background-image: url('https://source.unsplash.com/random/1600x900');
-            height: 100vh;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        /* Heading Style */
-        h1 {
-            font-size: 4em;
-            margin: 0;
-            padding-top: 20vh;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-            animation: glow 1.5s infinite alternate;
-        }
-
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px #ff6ec4, 0 0 20px #ff6ec4, 0 0 30px #ff6ec4;
-            }
-            to {
-                text-shadow: 0 0 20px #7873f5, 0 0 30px #7873f5, 0 0 40px #7873f5;
-            }
-        }
-
-        /* Fancy Button */
-        .fancy-button {
-            background: linear-gradient(90deg, #ff6ec4, #7873f5);
-            border: none;
-            border-radius: 50px;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            color: white;
-            cursor: pointer;
-            margin-top: 30px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .fancy-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #6e45e2, #88d3ce);
-            color: #fff;
-        }
-
-        .section h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        .content {
-            max-width: 800px;
+        /* Container Styling */
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Card Styling */
+        .card {
+            background: #292b3a;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Section Titles */
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #ff6ec4;
+        }
+
+        .info-title {
+            font-size: 1.5em;
+            color: #ffa7c4;
+            margin-bottom: 10px;
+        }
+
+        /* Content Styling */
+        .content {
+            font-size: 1.2em;
             line-height: 1.6;
         }
 
-        /* Floating Animation */
-        .floating {
-            animation: float 4s ease-in-out infinite;
+        /* Social Links Styling */
+        .social-links a {
+            color: #ff6ec4;
+            margin: 0 10px;
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: color 0.3s;
         }
 
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
+        .social-links a:hover {
+            color: #7873f5;
         }
 
-        /* Footer Styles */
-        footer {
-            background: #333;
-            color: #fff;
-            padding: 20px 0;
-            position: relative;
+        /* Discord Widget Styling */
+        .discord-widget {
+            margin-top: 30px;
         }
 
-        footer p {
-            margin: 0;
-            font-size: 0.9em;
+        /* Project Card Styling */
+        .project-card {
+            display: inline-block;
+            background: #ff6ec4;
+            color: #1e1e2f;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: left;
+            width: 300px;
+            margin: 15px;
+            transition: transform 0.3s ease;
         }
 
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-title {
+            font-size: 1.6em;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 1em;
         }
     </style>
 </head>
 <body>
-    <!-- Parallax Header -->
-    <div class="parallax">
-        <h1 class="floating">Welcome to the Most Fancy Website Ever!</h1>
-        <button class="fancy-button" onclick="scrollToSection()">Get Started</button>
-    </div>
+    <div class="container">
+        <!-- About Me Card -->
+        <div class="card">
+            <h2>About Me</h2>
+            <div class="content">
+                <p>Hello! I'm a passionate developer specializing in creating Discord bots and web applications. I love coding in Python and JavaScript, and enjoy building interactive experiences that bring value and fun to users.</p>
+            </div>
+        </div>
 
-    <!-- Content Section -->
-    <div class="section">
-        <h2>About This Fancy Website</h2>
-        <div class="content">
-            <p>This website is designed to dazzle and impress. Featuring gradient backgrounds, parallax scrolling, animations, and beautiful typography, it demonstrates the limitless possibilities of modern web design. Enjoy the fancy effects and interactive elements as you explore!</p>
+        <!-- Developer Info Card -->
+        <div class="card">
+            <h2>Developer Info</h2>
+            <div class="content">
+                <p class="info-title">Skills:</p>
+                <p>Python, JavaScript, Node.js, HTML, CSS, Discord API, MongoDB</p>
+                <p class="info-title">Experience:</p>
+                <p>3+ years in software development, focusing on bot development and web integrations.</p>
+            </div>
+        </div>
+
+        <!-- Social Info Card -->
+        <div class="card">
+            <h2>Social Info</h2>
+            <div class="content">
+                <p class="info-title">Connect with me:</p>
+                <div class="social-links">
+                    <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+                    <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <h2>Projects</h2>
+        <div class="project-card">
+            <h3 class="project-title">Discord Bot Project</h3>
+            <p class="project-description">An advanced Discord bot with features such as moderation, music, games, and custom commands, utilizing the latest Discord.js libraries.</p>
+        </div>
+        <div class="project-card">
+            <h3 class="project-title">Web App Dashboard</h3>
+            <p class="project-description">A sleek and interactive dashboard built with React.js for managing user data and bot configurations in a secure environment.</p>
+        </div>
+        <div class="project-card">
+            <h3 class="project-title">Pella.app</h3>
+            <p class="project-description">A platform for easy bot hosting that simplifies deployment and management of Discord bots for users.</p>
+        </div>
+
+        <!-- Discord Guild Widget -->
+        <div class="card discord-widget">
+            <h2>Join My Discord Guild</h2>
+            <iframe src="https://discord.com/widget?id=YOUR_GUILD_ID&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
         </div>
     </div>
-
-    <!-- Parallax Divider -->
-    <div class="parallax"></div>
-
-    <!-- More Fancy Content -->
-    <div class="section">
-        <h2>Fancy Features</h2>
-        <div class="content">
-            <p>From smooth animations to glowing text, every element is crafted to create a magical experience. You’ll find buttons that respond to your touch, text that glows with light, and backgrounds that change as you scroll. It’s like a journey through a digital wonderland.</p>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 FancyWeb Inc. All Rights Reserved.</p>
-    </footer>
-
-    <script>
-        function scrollToSection() {
-            document.querySelector('.section').scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
 </body>
 </html>
