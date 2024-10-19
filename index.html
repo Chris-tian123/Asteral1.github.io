@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fancy Developer Portfolio</title>
+    <title>Cool Dev Portfolio</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: #1e1e2f;
-            color: white;
+            background: #0d0d0d;
+            color: #fff;
             margin: 0;
             padding: 0;
             text-align: center;
@@ -23,49 +23,50 @@
 
         /* Card Styling */
         .card {
-            background: #292b3a;
+            background: #1a1a1a;
             border-radius: 15px;
             padding: 30px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease-in-out;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
         }
 
         .card:hover {
             transform: scale(1.05);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
         }
 
         /* Section Titles */
         h2 {
             font-size: 2.5em;
-            margin-bottom: 10px;
-            color: #ff6ec4;
+            color: #8a2be2; /* Purple color for headers */
+            margin-bottom: 15px;
         }
 
+        /* Info Styling */
         .info-title {
-            font-size: 1.5em;
-            color: #ffa7c4;
+            font-size: 1.6em;
+            color: #00ffff; /* Cyan color for subheaders */
             margin-bottom: 10px;
         }
 
-        /* Content Styling */
         .content {
             font-size: 1.2em;
             line-height: 1.6;
+            color: #c0c0c0;
         }
 
         /* Social Links Styling */
         .social-links a {
-            color: #ff6ec4;
-            margin: 0 10px;
+            color: #00ffff;
+            margin: 0 15px;
             font-size: 1.5em;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .social-links a:hover {
-            color: #7873f5;
+            color: #8a2be2;
         }
 
         /* Discord Widget Styling */
@@ -73,51 +74,31 @@
             margin-top: 30px;
         }
 
-        /* Project Card Styling */
-        .project-card {
-            display: inline-block;
-            background: #ff6ec4;
-            color: #1e1e2f;
-            border-radius: 15px;
-            padding: 20px;
-            text-align: left;
-            width: 300px;
-            margin: 15px;
-            transition: transform 0.3s ease;
+        /* Floating Animation for Discord Widget */
+        .floating {
+            animation: float 4s ease-in-out infinite;
         }
 
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .project-title {
-            font-size: 1.6em;
-            margin-bottom: 10px;
-        }
-
-        .project-description {
-            font-size: 1em;
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- About Me Card -->
+        <!-- Dev Info Card -->
         <div class="card">
-            <h2>About Me</h2>
-            <div class="content">
-                <p>Hello! I'm a passionate developer specializing in creating Discord bots and web applications. I love coding in Python and JavaScript, and enjoy building interactive experiences that bring value and fun to users.</p>
-            </div>
-        </div>
-
-        <!-- Developer Info Card -->
-        <div class="card">
-            <h2>Developer Info</h2>
+            <h2>Dev Info</h2>
             <div class="content">
                 <p class="info-title">Skills:</p>
-                <p>Python, JavaScript, Node.js, HTML, CSS, Discord API, MongoDB</p>
+                <p>Python, JavaScript, Node.js, Discord.js, HTML, CSS</p>
                 <p class="info-title">Experience:</p>
-                <p>3+ years in software development, focusing on bot development and web integrations.</p>
+                <p>3+ years developing web apps and Discord bots, focusing on interactive and dynamic user experiences.</p>
             </div>
         </div>
 
@@ -134,23 +115,19 @@
             </div>
         </div>
 
-        <!-- Projects Section -->
-        <h2>Projects</h2>
-        <div class="project-card">
-            <h3 class="project-title">Discord Bot Project</h3>
-            <p class="project-description">An advanced Discord bot with features such as moderation, music, games, and custom commands, utilizing the latest Discord.js libraries.</p>
-        </div>
-        <div class="project-card">
-            <h3 class="project-title">Web App Dashboard</h3>
-            <p class="project-description">A sleek and interactive dashboard built with React.js for managing user data and bot configurations in a secure environment.</p>
-        </div>
-        <div class="project-card">
-            <h3 class="project-title">Pella.app</h3>
-            <p class="project-description">A platform for easy bot hosting that simplifies deployment and management of Discord bots for users.</p>
+        <!-- More Info Card -->
+        <div class="card">
+            <h2>More Info</h2>
+            <div class="content">
+                <p class="info-title">About Me:</p>
+                <p>A passionate developer who loves creating engaging web applications and bots. Always keen to learn new technologies and improve my skills.</p>
+                <p class="info-title">Interests:</p>
+                <p>Coding, gaming, and exploring new tech.</p>
+            </div>
         </div>
 
         <!-- Discord Guild Widget -->
-        <div class="card discord-widget">
+        <div class="card discord-widget floating">
             <h2>Join My Discord Guild</h2>
             <iframe src="https://discord.com/widget?id=YOUR_GUILD_ID&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
         </div>
