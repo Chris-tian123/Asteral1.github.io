@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cool Dev Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background: #0d0d0d;
             color: #fff;
             margin: 0;
@@ -41,6 +42,13 @@
             font-size: 2.5em;
             color: #8a2be2; /* Purple color for headers */
             margin-bottom: 15px;
+            animation: move 5s linear infinite;
+        }
+
+        @keyframes move {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0); }
         }
 
         /* Info Styling */
@@ -87,6 +95,20 @@
                 transform: translateY(-10px);
             }
         }
+
+        /* Project Cards */
+        .project-card {
+            background: #292929;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-title {
+            font-size: 1.8em;
+            color: #00ffff;
+        }
     </style>
 </head>
 <body>
@@ -96,7 +118,7 @@
             <h2>Dev Info</h2>
             <div class="content">
                 <p class="info-title">Skills:</p>
-                <p>Python, JavaScript, Node.js, Discord.js, HTML, CSS</p>
+                <p>JavaScript, Go, HTML, CSS</p>
                 <p class="info-title">Experience:</p>
                 <p>3+ years developing web apps and Discord bots, focusing on interactive and dynamic user experiences.</p>
             </div>
@@ -108,9 +130,8 @@
             <div class="content">
                 <p class="info-title">Connect with me:</p>
                 <div class="social-links">
-                    <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
-                    <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a>
-                    <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+                    <a href="https://discord.com/invite/YOUR_DISCORD_INVITE" target="_blank">Discord</a>
+                    <a href="https://t.me/YOUR_TELEGRAM_LINK" target="_blank">Telegram</a>
                 </div>
             </div>
         </div>
@@ -123,6 +144,33 @@
                 <p>A passionate developer who loves creating engaging web applications and bots. Always keen to learn new technologies and improve my skills.</p>
                 <p class="info-title">Interests:</p>
                 <p>Coding, gaming, and exploring new tech.</p>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="card">
+            <h2>My Projects</h2>
+            <div class="project-card">
+                <div class="project-title">Project 1: Discord Bot</div>
+                <p>Created a Discord bot that manages server moderation and automates tasks.</p>
+            </div>
+            <div class="project-card">
+                <div class="project-title">Project 2: Portfolio Website</div>
+                <p>A responsive portfolio website showcasing my projects and skills.</p>
+            </div>
+            <div class="project-card">
+                <div class="project-title">Project 3: Todo List App</div>
+                <p>A simple and intuitive todo list application built with HTML, CSS, and JavaScript.</p>
+            </div>
+        </div>
+
+        <!-- Pella.app Section -->
+        <div class="card">
+            <h2>Pella.app</h2>
+            <div class="content">
+                <p class="info-title">Hosting Service:</p>
+                <p>Offering easy and efficient bot hosting solutions with a user-friendly interface.</p>
+                <p>Currently rated 4.5 stars on Trustpilot!</p>
             </div>
         </div>
 
