@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Pet Care</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .game-container {
+            background-color: #bada55;
+            display: inline-block;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+        .pet {
+            width: 100px;
+            height: 100px;
+            image-rendering: pixelated;
+            margin-bottom: 20px;
+        }
+        .stats {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .button-container button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .notifications {
+            margin-top: 20px;
+            font-size: 16px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <input type="text" placeholder="Name your pet" id="pet-name-input">
+        <button onclick="setPetName()">Set Name</button>
+        <h2 id="pet-name-display">Your Pet</h2>
+        <img src="https://placekitten.com/100/100" alt="Pixel Pet" class="pet" id="pet-image">
+        <div class="stats">
+            <p>Age: <span id="age">0</span> years</p>
+            <p>Happiness: <span id="happiness">100</span></p>
+            <p>Hunger: <span id="hunger">100</span></p>
+            <p>Thirst: <span id="thirst">100</span></p>
+            <p>Cleanliness: <span id="cleanliness">100</span></p>
+        </div>
+        <div class="button-container">
+            <button onclick="feedPet()">Feed</button>
+            <button onclick="playWithPet()">Play</button>
+            <button onclick="showerPet()">Shower</button>
+            <button onclick="putToSleep()">Sleep</button>
+            <button onclick="walkPet()">Walk</button>
+        </div>
+        <div class="notifications" id="notifications"></div>
+    </div>
+
+    <script>
+        let happiness = 100;
+        let hunger = 100;
+        let thirst = 100;
+        let cleanliness = 100;
+        let age = 0;
+        let petDepressive = false;
+        let petName = "Your Pet";
+
+        function setPetName() {
+            petName = document.getElementById("pet-name-input").value || "Your Pet";
+            document.getElementById("pet-name-display").textContent = petName;
+        }
+
+        function updateStats() {
+            document.getElementById("happiness").textContent = happiness;
+            document.getElementById("hunger").textContent = hunger;
+            document.getElementById("thirst").textContent = thirst;
+            document.getElementById("cleanliness").textContent = cleanliness;
+            document.getElementById("age").textContent = age;
+            checkNotifications();
+        }
+
+        function checkNotifications() {
+            let notifications = "";
+            if (happiness < 50) notifications += "Happiness is low! ";
+            if (happiness < 30) {
+                notifications += "Pet is depressive and refuses to eat! ";
+                petDepressive = true;
+            } else {
+                petDepressive = false;
+            }
+            if (thirst < 60) notifications += "Pet is thirsty! ";
+            if (thirst < 20) notifications += "Pet is very thirsty! ";
+            if (hunger < 40) notifications += "Pet is hungry! ";
+            if (cleanliness < 30) notifications += "Pet is dirty! ";
+
+            document.getElementById("notifications").textContent = notifications;
+            if (notifications) sendNotification(notifications);
+        }
+
+        function sendNotification(message) {
+            if (Notification.permission === "granted") {
+                new Notification(petName + " needs attention!", { body: message });
+            }
+        }
+
+        function requestNotificationPermission() {
+            if (Notification.permission !== "granted") {
+                Notification.requestPermission().then(permission => {
+                    if (permission !== "granted") {
+                        alert("Notifications are blocked. You might miss important alerts!");
+                    }
+                });
+            }
+        }
+
+        function feedPet() {
+            if (petDepressive) return;
+            hunger = Math.min(100, hunger + 20);
+            updateStats();
+        }
+
+        function playWithPet() {
+            happiness = Math.min(100, happiness + 20);
+            hunger -= 10;
+            thirst -= 10;
+            updateStats();
+        }
+
+        function showerPet() {
+            cleanliness = Math.min(100, cleanliness + 30);
+            updateStats();
+        }
+
+        function putToSleep() {
+            happiness += 10;
+            hunger -= 10;
+            thirst -= 10;
+            cleanliness -= 5;
+            updateStats();
+        }
+
+        function walkPet() {
+            happiness += 15;
+            thirst -= 10;
+            cleanliness -= 10;
+            updateStats();
+        }
+
+        function decreaseStats() {
+            happiness = Math.max(0, happiness - 5);
+            hunger = Math.max(0, hunger - 5);
+            thirst = Math.max(0, thirst - 5);
+            cleanliness = Math.max(0, cleanliness - 5);
+            updateStats();
+        }
+
+        function increaseAge() {
+            age++;
+            if (age >= 40) {
+                alert(petName + " has passed away at the age of 40.");
+                resetGame();
+            }
+            updateStats();
+        }
+
+        function resetGame() {
+            age = 0;
+            happiness = 100;
+            hunger = 100;
+            thirst = 100;
+            cleanliness = 100;
+            petDepressive = false;
+            updateStats();
+        }
+
+        setInterval(decreaseStats, 60000); // decrease stats every 60 seconds
+        setInterval(increaseAge, 300000); // increase age every 5 minutes
+        requestNotificationPermission();
+        updateStats();
+    </script>
+</body>
+</html>
