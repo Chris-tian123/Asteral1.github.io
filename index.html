@@ -4,49 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cool Dev Portfolio</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Add your favicon here -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to right, #2a2a2a, #4c4c4c); /* Darker gradient for better contrast */
-            color: #f0f0f0; /* Light text for readability */
+            background: linear-gradient(to right, #000000, #5c4b8a); /* Darker purple gradient */
+            color: #fff;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center align content */
             text-align: center;
         }
 
         /* Container Styling */
         .container {
-            max-width: 1200px; /* Increased width for spacious layout */
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 30px; /* Space between cards */
         }
 
         /* Card Styling */
         .card {
-            background: rgba(255, 255, 255, 0.1); /* Slightly opaque background for cards */
+            background: linear-gradient(to right, rgba(26, 26, 26, 0.8), rgba(0, 0, 0, 0.8)); /* Gradient for cards */
             border-radius: 15px;
             padding: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effect */
+            margin-bottom: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out, background 0.5s; /* Add transition for background */
         }
 
         .card:hover {
-            transform: translateY(-5px); /* Lift effect on hover */
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(to right, rgba(255, 0, 255, 0.8), rgba(0, 0, 0, 0.9)); /* Gradient on hover */
         }
 
         /* Section Titles */
         h2 {
             font-size: 2.5em;
-            color: #8a2be2; /* Purple for headers */
+            color: #8a2be2; /* Purple color for headers */
             margin-bottom: 15px;
             animation: move 5s linear infinite;
         }
@@ -60,14 +56,14 @@
         /* Info Styling */
         .info-title {
             font-size: 1.6em;
-            color: #00ffff; /* Cyan for subheaders */
+            color: #00ffff; /* Cyan color for subheaders */
             margin-bottom: 10px;
         }
 
         .content {
             font-size: 1.2em;
             line-height: 1.6;
-            color: #c0c0c0; /* Slightly lighter color for body text */
+            color: #c0c0c0;
         }
 
         /* Social Links Styling */
@@ -80,43 +76,23 @@
         }
 
         .social-links a:hover {
-            color: #8a2be2; /* Purple on hover */
+            color: #8a2be2;
         }
 
         /* Project Cards */
         .project-card {
-            background: rgba(255, 255, 255, 0.05); /* Semi-transparent black for project cards */
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)); /* Updated to blend with background */
             border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s;
-        }
-
-        .project-card:hover {
-            background: rgba(255, 255, 255, 0.1); /* Darker on hover */
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: move 3s linear infinite; /* Adding the same moving effect */
+            transition: background 0.5s; /* Smooth transition for background change */
         }
 
         .project-title {
             font-size: 1.8em;
-            color: #ffffff; /* White for project titles */
-        }
-
-        /* Button Styling */
-        .button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background: #8a2be2; /* Button color */
-            color: white;
-            cursor: pointer;
-            transition: background 0.3s;
-            font-size: 1em;
-            text-align: center;
-            text-decoration: none; /* Ensure links appear as buttons */
-        }
-
-        .button:hover {
-            background: #6a1b9a; /* Darker shade on hover */
+            color: #ffffff; /* White text for contrast */
         }
     </style>
 </head>
@@ -178,9 +154,11 @@
             <h2>Pella.app</h2>
             <div class="content">
                 <p class="info-title">Hosting Service:</p>
-                <p>Discover the power of pella.app's hosting service! For Minecraft servers or Discord bots, pella.app has the solutions you need to make your digital dreams a reality. With reliable 24/7 hosting, easy setup, and automatic dependency management, pella.app makes it easier than ever to get your projects online. Try pella.app today and experience the best in hosting!</p>
+                <p>Discover the power of pella.app's hosting service! For Minecraft servers or Discord bots, pella.app has the solutions you need to make your digital dreams a reality.
+                With reliable 24/7 hosting, easy setup, and automatic dependency management, pella.app makes it easier than ever to get your projects online.
+                Try pella.app today and experience the best in hosting!</p>
                 <p>Currently rated 4.5 stars on Trustpilot!</p>
-                <a href="https://pella.app" target="_blank" class="button">Visit Pella.app</a> <!-- Button for visiting Pella.app -->
+                <a href="https://pella.app" target="_blank">pella</a>
             </div>
         </div>
     </div>
