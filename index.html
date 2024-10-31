@@ -4,74 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asteral Portfolio</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Add your favicon here -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to right, #000000, #5c4b8a); /* Darker purple gradient */
+            background: radial-gradient(circle at top, #3a2e5c, #1a1a1a);
             color: #fff;
             margin: 0;
             padding: 0;
             text-align: center;
+            overflow-x: hidden;
         }
 
         /* Container Styling */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
         /* Card Styling */
         .card {
-            background: linear-gradient(to right, rgba(26, 26, 26, 0.8), rgba(0, 0, 0, 0.8)); /* Gradient for cards */
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease-in-out, background 0.5s; /* Add transition for background */
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transform: scale(1);
+            transition: transform 0.4s ease, background 0.4s ease;
         }
 
         .card:hover {
             transform: scale(1.05);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.15);
         }
 
         /* Section Titles */
         h2 {
             font-size: 2.5em;
-            color: #8a2be2; /* Purple color for headers */
-            margin-bottom: 15px;
-            animation: move 5s linear infinite;
+            color: #8a2be2;
+            margin: 0 0 10px;
+            position: relative;
+            animation: titleGlow 4s ease-in-out infinite;
         }
 
-        @keyframes move {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-            100% { transform: translateY(0); }
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 0 0 20px #8a2be2, 0 0 40px #8a2be2; }
+            50% { text-shadow: 0 0 40px #8a2be2, 0 0 80px #00ffff; }
         }
 
-        /* Info Styling */
         .info-title {
             font-size: 1.6em;
-            color: #00ffff; /* Cyan color for subheaders */
+            color: #00ffff;
             margin-bottom: 10px;
         }
 
         .content {
             font-size: 1.2em;
             line-height: 1.6;
-            color: #c0c0c0;
+            color: #e6e6e6;
         }
 
-        /* Social Links Styling */
+        /* Social Links */
         .social-links a {
             color: #00ffff;
             margin: 0 15px;
             font-size: 1.5em;
-            text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.4s;
         }
 
         .social-links a:hover {
@@ -80,18 +81,41 @@
 
         /* Project Cards */
         .project-card {
-            background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)); /* Updated to blend with background */
+            background: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            animation: move 3s linear infinite; /* Adding the same moving effect */
-            transition: background 0.5s; /* Smooth transition for background change */
+            margin: 20px 0;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            transition: background 0.5s, box-shadow 0.5s;
+        }
+
+        .project-card:hover {
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
         }
 
         .project-title {
             font-size: 1.8em;
-            color: #ffffff; /* White text for contrast */
+            color: #ffffff;
+        }
+
+        /* Subtle Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .card, .project-card {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* Links */
+        a {
+            color: #00ffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #8a2be2;
         }
     </style>
 </head>
@@ -156,8 +180,8 @@
                 <p>Discover the power of pella.app's hosting service! For Minecraft servers or Discord bots, pella.app has the solutions you need to make your digital dreams a reality.
                 With reliable 24/7 hosting, easy setup, and automatic dependency management, pella.app makes it easier than ever to get your projects online.
                 Try pella.app today and experience the best in hosting!</p>
-                <p>Currently rated 4.5 stars on Trustpilot!</p>
-                <a href="https://pella.app" target="_blank">pella</a>
+                <p>Currently rated 4.7 stars on Trustpilot!</p>
+                <a href="https://pella.app" target="_blank">pella.app</a>
             </div>
         </div>
     </div>
