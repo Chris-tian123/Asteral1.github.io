@@ -7,115 +7,125 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        /* Root colors, fonts, and primary aesthetics */
+        :root {
+            --primary-color: #ff79c6;
+            --accent-color: #bd93f9;
+            --background-gradient: radial-gradient(circle at top, #1b1b1b, #0b0b0b);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --box-shadow: rgba(255, 255, 255, 0.25) 0px 4px 12px;
+        }
+
+        /* Base styling for the page */
         body {
             font-family: 'Poppins', sans-serif;
-            background: radial-gradient(circle at top, #3a2e5c, #1a1a1a);
-            color: #fff;
             margin: 0;
             padding: 0;
             text-align: center;
+            color: #ffffff;
+            background: var(--background-gradient);
             overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        /* Container Styling */
+        /* Main container with flex alignment */
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 1000px;
             padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
         }
 
-        /* Card Styling */
+        /* Card style with luxurious glassmorphism and shadow effects */
         .card {
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--glass-bg);
             border-radius: 15px;
-            padding: 30px;
-            margin: 20px 0;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), var(--box-shadow);
             backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transform: scale(1);
-            transition: transform 0.4s ease, background 0.4s ease;
+            transition: transform 0.3s, background 0.5s ease;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .card:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
             background: rgba(255, 255, 255, 0.15);
         }
 
-        /* Section Titles */
+        /* Animated titles with neon glow */
         h2 {
-            font-size: 2.5em;
-            color: #8a2be2;
-            margin: 0 0 10px;
+            font-size: 2.8em;
+            color: var(--primary-color);
             position: relative;
-            animation: titleGlow 4s ease-in-out infinite;
+            text-transform: uppercase;
+            text-shadow: 0 0 8px var(--primary-color), 0 0 16px var(--accent-color);
+            animation: title-glow 4s ease-in-out infinite;
+            margin-bottom: 20px;
         }
 
-        @keyframes titleGlow {
-            0%, 100% { text-shadow: 0 0 20px #8a2be2, 0 0 40px #8a2be2; }
-            50% { text-shadow: 0 0 40px #8a2be2, 0 0 80px #00ffff; }
+        /* Glow animation for titles */
+        @keyframes title-glow {
+            0% { text-shadow: 0 0 8px var(--primary-color), 0 0 16px var(--accent-color); }
+            50% { text-shadow: 0 0 16px var(--primary-color), 0 0 32px var(--accent-color); }
+            100% { text-shadow: 0 0 8px var(--primary-color), 0 0 16px var(--accent-color); }
         }
 
+        /* Styling for section subtitles and main content */
         .info-title {
-            font-size: 1.6em;
-            color: #00ffff;
-            margin-bottom: 10px;
+            font-size: 1.8em;
+            color: var(--accent-color);
+            margin-bottom: 12px;
+            font-weight: 500;
         }
 
         .content {
             font-size: 1.2em;
-            line-height: 1.6;
-            color: #e6e6e6;
+            line-height: 1.8;
+            color: #e0e0e0;
         }
 
-        /* Social Links */
+        /* Elegant social links with subtle hover animations */
         .social-links a {
-            color: #00ffff;
+            color: var(--accent-color);
             margin: 0 15px;
             font-size: 1.5em;
-            transition: color 0.4s;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s;
         }
 
         .social-links a:hover {
-            color: #8a2be2;
+            color: var(--primary-color);
+            transform: translateY(-4px);
         }
 
-        /* Project Cards */
+        /* Project cards with glassy aesthetic and hover effect */
         .project-card {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             padding: 20px;
             margin: 20px 0;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-            transition: background 0.5s, box-shadow 0.5s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: background 0.5s, transform 0.3s ease-in-out;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .project-card:hover {
-            background: rgba(0, 0, 0, 0.7);
-            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
         }
 
+        /* Project title for a rich aesthetic */
         .project-title {
-            font-size: 1.8em;
+            font-size: 1.6em;
             color: #ffffff;
-        }
-
-        /* Subtle Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        .card, .project-card {
-            animation: float 5s ease-in-out infinite;
-        }
-
-        /* Links */
-        a {
-            color: #00ffff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        a:hover {
-            color: #8a2be2;
+            font-weight: 600;
+            margin-bottom: 8px;
         }
     </style>
 </head>
