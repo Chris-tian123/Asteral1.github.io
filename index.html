@@ -17,7 +17,7 @@
             --shadow-color: rgba(0, 0, 0, 0.5);
         }
 
-        /* Base reset */
+        /* Reset */
         * {
             margin: 0;
             padding: 0;
@@ -28,7 +28,7 @@
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--text-light);
-            background: linear-gradient(120deg, #0d0d0d, #282a36);
+            background: radial-gradient(circle, #0d0d0d, #282a36);
             overflow-x: hidden;
             display: flex;
             align-items: center;
@@ -37,7 +37,7 @@
             position: relative;
         }
 
-        /* Animated background gradient */
+        /* Particle background */
         body::before {
             content: "";
             position: absolute;
@@ -45,15 +45,28 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(130deg, #ff79c6 0%, #bd93f9 100%);
-            opacity: 0.15;
+            background: radial-gradient(circle, #ff79c6 0%, #bd93f9 100%);
+            opacity: 0.08;
             z-index: -2;
-            animation: gradient 10s ease-in-out infinite alternate;
         }
 
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+        /* Particle Animation */
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+            opacity: 0.05;
+            z-index: -1;
+            animation: particles 20s linear infinite;
+        }
+
+        @keyframes particles {
+            from { transform: translate(0, 0); }
+            to { transform: translate(-100px, -100px); }
         }
 
         /* Container styling */
@@ -75,8 +88,14 @@
             letter-spacing: 1px;
             animation: glow 2s ease-in-out infinite alternate;
             margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(to right, #ff79c6, #bd93f9);
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
+        /* Animated glow */
         @keyframes glow {
             from { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--accent-color); }
             to { text-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--accent-color); }
@@ -88,13 +107,14 @@
             border-radius: 15px;
             padding: 30px;
             width: 100%;
-            box-shadow: 0 4px 10px var(--shadow-color);
+            box-shadow: 0 4px 15px var(--shadow-color);
             transition: transform 0.3s, box-shadow 0.3s;
             backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
         }
 
+        /* Card shine effect */
         .card::before {
             content: "";
             position: absolute;
@@ -102,21 +122,21 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle at center, transparent, rgba(255, 255, 255, 0.1), transparent);
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent, rgba(255, 255, 255, 0.05));
             opacity: 0.3;
             z-index: -1;
             transform: rotate(45deg);
-            animation: shine 5s linear infinite;
+            animation: shine 10s linear infinite;
         }
 
         @keyframes shine {
-            from { transform: rotate(45deg) translate(-30%, -30%); }
-            to { transform: rotate(45deg) translate(30%, 30%); }
+            from { transform: translate(-30%, -30%) rotate(45deg); }
+            to { transform: translate(30%, 30%) rotate(45deg); }
         }
 
         .card:hover {
             transform: scale(1.03);
-            box-shadow: 0 8px 16px var(--shadow-color);
+            box-shadow: 0 8px 20px var(--shadow-color);
         }
 
         /* Info text */
@@ -228,13 +248,4 @@
             <h2>Pella.app</h2>
             <div class="content">
                 <p class="info-title">Hosting Service:</p>
-                <p>Discover the power of pella.app's hosting service! For Minecraft servers or Discord bots, pella.app has the solutions you need to make your digital dreams a reality.
-                With reliable 24/7 hosting, easy setup, and automatic dependency management, pella.app makes it easier than ever to get your projects online.
-                Try pella.app today and experience the best in hosting!</p>
-                <p>Currently rated 4.7 stars on Trustpilot!</p>
-                <a href="https://pella.app" target="_blank">pella.app</a>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+                <p>Discover the power of pella.app's hosting service! For Minecraft servers or Discord bots, pella.app has the solutions you need to make your digital dreams a
