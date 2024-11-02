@@ -1,0 +1,6 @@
+Name
+_discord.asteral.is-a.dev
+Type
+TXT
+Content
+dh=ffc286a04d0f4c545661af51e694f484a4126218
