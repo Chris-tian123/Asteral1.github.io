@@ -7,24 +7,21 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Root styles */
         :root {
             --primary-color: #00ffff;
-            --accent-color: #98ff98; /* Updated to mint green */
+            --accent-color: #98ff98;
             --background-color: #0d0d0d;
             --card-bg: rgba(18, 18, 18, 0.7);
             --text-light: #f8f8f2;
             --shadow-color: rgba(0, 0, 0, 0.5);
         }
 
-        /* Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Body styling */
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--text-light);
@@ -37,7 +34,6 @@
             position: relative;
         }
 
-        /* Particle background */
         body::before {
             content: "";
             position: absolute;
@@ -45,12 +41,11 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle, #00ffff 0%, #98ff98 100%); /* Updated gradient */
+            background: radial-gradient(circle, #00ffff 0%, #98ff98 100%);
             opacity: 0.08;
             z-index: -2;
         }
 
-        /* Particle Animation */
         body::after {
             content: "";
             position: absolute;
@@ -69,7 +64,33 @@
             to { transform: translate(-100px, -100px); }
         }
 
-        /* Container styling */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--background-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         .container {
             max-width: 1000px;
             width: 90%;
@@ -78,9 +99,14 @@
             flex-direction: column;
             align-items: center;
             gap: 40px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        /* Glowing title with shadow */
+        .container.visible {
+            opacity: 1;
+        }
+
         h2 {
             font-size: 2.5rem;
             color: var(--primary-color);
@@ -90,18 +116,16 @@
             margin-bottom: 20px;
             position: relative;
             z-index: 1;
-            background: linear-gradient(to right, #00ffff, #98ff98); /* Updated gradient */
+            background: linear-gradient(to right, #00ffff, #98ff98);
             -webkit-background-clip: text;
             color: transparent;
         }
 
-        /* Animated glow */
         @keyframes glow {
             from { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--accent-color); }
             to { text-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--accent-color); }
         }
 
-        /* Card styling */
         .card {
             background: var(--card-bg);
             border-radius: 15px;
@@ -114,7 +138,6 @@
             overflow: hidden;
         }
 
-        /* Card shine effect */
         .card::before {
             content: "";
             position: absolute;
@@ -139,7 +162,6 @@
             box-shadow: 0 8px 20px var(--shadow-color);
         }
 
-        /* Info text */
         .info-title {
             font-size: 1.5rem;
             color: var(--accent-color);
@@ -153,7 +175,6 @@
             color: #c0c0c0;
         }
 
-        /* Social links */
         .social-links a {
             color: var(--accent-color);
             margin: 0 10px;
@@ -166,9 +187,8 @@
             transform: translateY(-5px);
         }
 
-        /* Project cards */
         .project-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: linear-gradient(135deg, #00bcd4, #8bc34a);
             border-radius: 10px;
             padding: 20px;
             margin: 15px 0;
@@ -179,7 +199,7 @@
 
         .project-card:hover {
             transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.08);
+            background: linear-gradient(135deg, #009688, #4caf50);
         }
 
         .project-title {
@@ -189,10 +209,18 @@
             margin-bottom: 10px;
         }
     </style>
+    <script>
+        window.addEventListener('load', () => {
+            document.querySelector('.loading-screen').style.display = 'none';
+            document.querySelector('.container').classList.add('visible');
+        });
+    </script>
 </head>
 <body>
+    <div class="loading-screen">
+        <div class="spinner"></div>
+    </div>
     <div class="container">
-        <!-- Dev Info Card -->
         <div class="card">
             <h2>Dev Info</h2>
             <div class="content">
@@ -203,7 +231,6 @@
             </div>
         </div>
 
-        <!-- Social Info Card -->
         <div class="card">
             <h2>Social Info</h2>
             <div class="content">
@@ -215,7 +242,6 @@
             </div>
         </div>
 
-        <!-- More Info Card -->
         <div class="card">
             <h2>More Info</h2>
             <div class="content">
@@ -226,7 +252,6 @@
             </div>
         </div>
 
-        <!-- Projects Section -->
         <div class="card">
             <h2>My Projects</h2>
             <div class="project-card">
@@ -247,7 +272,6 @@
             </div>
         </div>
 
-        <!-- Pella.app Section -->
         <div class="card">
             <h2>Pella.app</h2>
             <div class="content">
