@@ -44,6 +44,12 @@
             background: radial-gradient(circle, #00ffff 0%, #98ff98 100%);
             opacity: 0.08;
             z-index: -2;
+            animation: moveBackground 10s linear infinite alternate;
+        }
+
+        @keyframes moveBackground {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
         }
 
         .loading-screen {
@@ -148,19 +154,16 @@
             padding: 20px;
             margin: 15px 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-            color: var(--primary-color);
+            color: #ffffff;
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .project-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 10px;
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            color: #000;
         }
     </style>
     <script>
@@ -168,7 +171,7 @@
             setTimeout(() => {
                 document.querySelector('.loading-screen').style.display = 'none';
                 document.querySelector('.container').classList.add('visible');
-            }, 10000);
+            }, 5000);
         });
     </script>
 </head>
@@ -179,33 +182,9 @@
 </div>
     <div class="container">
         <div class="card">
-            <h2>Dev Info</h2>
+            <h2>Pella</h2>
             <div class="content">
-                <p class="info-title">Skills:</p>
-                <p>JavaScript, Go, HTML, CSS</p>
-                <p class="info-title">Experience:</p>
-                <p>3+ years developing web apps and Discord bots, focusing on interactive and dynamic user experiences.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>Social Info</h2>
-            <div class="content">
-                <p class="info-title">Connect with me:</p>
-                <div class="social-links">
-                    <a href="https://discord.gg/nJxvU5C38V" target="_blank">Discord</a>
-                    <a href="https://t.me/Asteral1" target="_blank">Telegram</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>More Info</h2>
-            <div class="content">
-                <p class="info-title">About Me:</p>
-                <p>A passionate developer who loves creating engaging web applications and bots. Always keen to learn new technologies and improve my skills.</p>
-                <p class="info-title">Interests:</p>
-                <p>Coding, gaming, and exploring new tech.</p>
+                <p>Pella.app simplifies bot hosting. Deploy bots effortlessly and focus on creativity.</p>
             </div>
         </div>
 
