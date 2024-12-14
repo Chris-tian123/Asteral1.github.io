@@ -46,24 +46,6 @@
             z-index: -2;
         }
 
-        body::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
-            opacity: 0.05;
-            z-index: -1;
-            animation: particles 20s linear infinite;
-        }
-
-        @keyframes particles {
-            from { transform: translate(0, 0); }
-            to { transform: translate(-100px, -100px); }
-        }
-
         .loading-screen {
             position: fixed;
             top: 0;
@@ -78,45 +60,25 @@
             z-index: 1000;
         }
 
-        .welcome-text {
+        .loading-text {
             font-size: 2rem;
             color: var(--primary-color);
             margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             animation: fadeInOut 3s infinite;
         }
 
-        @keyframes fadeInOut {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
-        }
-
         .loading-bar {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .heart {
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            animation: heartbeat 1s infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.3); }
-        }
-
-        .bar {
-            width: 200px;
-            height: 5px;
-            background: var(--primary-color);
+            width: 300px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
             position: relative;
             overflow: hidden;
         }
 
-        .bar::before {
+        .loading-bar::before {
             content: "";
             position: absolute;
             top: 0;
@@ -124,12 +86,17 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            animation: loading 10s linear infinite;
+            animation: horizontalLoading 10s linear forwards;
         }
 
-        @keyframes loading {
+        @keyframes horizontalLoading {
             from { left: -100%; }
             to { left: 100%; }
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
         }
 
         .container {
@@ -153,18 +120,10 @@
             color: var(--primary-color);
             text-transform: uppercase;
             letter-spacing: 1px;
-            animation: glow 2s ease-in-out infinite alternate;
             margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
             background: linear-gradient(to right, #00ffff, #98ff98);
             -webkit-background-clip: text;
             color: transparent;
-        }
-
-        @keyframes glow {
-            from { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--accent-color); }
-            to { text-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--accent-color); }
         }
 
         .card {
@@ -173,59 +132,14 @@
             padding: 30px;
             width: 100%;
             box-shadow: 0 4px 15px var(--shadow-color);
-            transition: transform 0.3s, box-shadow 0.3s;
             backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
         }
 
-        .card::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent, rgba(255, 255, 255, 0.05));
-            opacity: 0.3;
-            z-index: -1;
-            transform: rotate(45deg);
-            animation: shine 10s linear infinite;
-        }
-
-        @keyframes shine {
-            from { transform: translate(-30%, -30%) rotate(45deg); }
-            to { transform: translate(30%, 30%) rotate(45deg); }
-        }
-
         .card:hover {
             transform: scale(1.03);
             box-shadow: 0 8px 20px var(--shadow-color);
-        }
-
-        .info-title {
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .content {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #c0c0c0;
-        }
-
-        .social-links a {
-            color: var(--accent-color);
-            margin: 0 10px;
-            font-size: 1.5rem;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--primary-color);
-            transform: translateY(-5px);
         }
 
         .project-card {
@@ -236,6 +150,7 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
             position: relative;
+            color: var(--primary-color);
         }
 
         .project-card:hover {
@@ -244,7 +159,6 @@
 
         .project-title {
             font-size: 1.6rem;
-            color: var(--primary-color);
             font-weight: 700;
             margin-bottom: 10px;
         }
@@ -260,12 +174,8 @@
 </head>
 <body>
 <div class="loading-screen">
-    <div class="welcome-text">Welcome</div>
-    <div class="loading-bar">
-        <span class="heart">❤️</span>
-        <div class="bar"></div>
-        <span class="heart">❤️</span>
-    </div>
+    <div class="loading-text">Loading...</div>
+    <div class="loading-bar"></div>
 </div>
     <div class="container">
         <div class="card">
@@ -312,18 +222,6 @@
             <div class="project-card">
                 <div class="project-title">Project 3: Selfbot</div>
                 <p>Discord selfbot for multipurpose.</p>
-            </div>
-            <div class="project-card">
-                <div class="project-title">Project 4: CodeSnippets</div>
-                <p>A web-based tool for sharing and collaborating on code snippets in real-time.</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>Pella.app</h2>
-            <div class="content">
-                <p class="info-title">Hosting Service:</p>
-                <p>Discover the power of pella.app's hosting service! For Minecraft servers or Discord bots, pella.app has the solutions you need to make your digital dreams a reality.</p>
             </div>
         </div>
     </div>
