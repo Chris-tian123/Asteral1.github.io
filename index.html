@@ -1,103 +1,131 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Asteral Portfolio</title>
+
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
     <style>
-        /* Root styles */
+
         :root {
-            --primary-color: #98FF98; /* Mint Green */
-            --accent-color: #bd93f9;
+            --primary-color: #00ffff; /* Mint Green */
+            --accent-color: #98ff98; /* Mint Green */
             --background-color: #0d0d0d;
             --card-bg: rgba(18, 18, 18, 0.7);
             --text-light: #f8f8f2;
             --shadow-color: rgba(0, 0, 0, 0.5);
         }
 
-        /* Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Body styling */
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--text-light);
             background: radial-gradient(circle, #0d0d0d, #282a36);
             overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             min-height: 100vh;
             position: relative;
+            text-align: center; /* Center align text */
         }
 
-        /* Loading Screen */
-        #loading-screen {
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, #00ffff 0%, #98ff98 100%);
+            opacity: 0.08;
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+            opacity: 0.05;
+            z-index: -1;
+            animation: particles 20s linear infinite;
+        }
+
+        @keyframes particles {
+            from { transform: translate(0, 0); }
+            to { transform: translate(-100px, -100px); }
+        }
+
+        .loading-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--background-color);
+            background-color: var(--background-color);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 9999;
+            z-index: 1000;
         }
 
-        .loading-text {
+        .welcome-text {
             font-size: 2rem;
             color: var(--primary-color);
             margin-bottom: 20px;
-            animation: fade 1.5s infinite;
+            animation: fadeInOut 3s infinite;
         }
 
-        @keyframes fade {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
         }
 
         .loading-bar {
-            width: 80%;
-            height: 10px;
-            background: rgba(255, 255, 255, 0.2);
-            overflow: hidden;
+            width: 200px;
+            height: 5px;
+            background: var(--primary-color);
+            border-radius: 10px;
             position: relative;
-            border-radius: 5px;
+            overflow: hidden;
+            margin: 20px 0;
         }
 
         .loading-bar::before {
             content: "";
             position: absolute;
             top: 0;
-            left: 0;
-            width: 0%;
+            left: -100%;
+            width: 100%;
             height: 100%;
-            background: var(--primary-color);
-            animation: loading 2s infinite;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            animation: loading 10s linear infinite;
         }
 
         @keyframes loading {
-            0% {
-                width: 0%;
-            }
-            50% {
-                width: 50%;
-            }
-            100% {
-                width: 100%;
-            }
+            from { left: -100%; }
+            to { left: 100%; }
         }
 
-        /* Container styling */
         .container {
             max-width: 1000px;
             width: 90%;
@@ -106,9 +134,14 @@
             flex-direction: column;
             align-items: center;
             gap: 40px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        /* Glowing title with shadow */
+        .container.visible {
+            opacity: 1;
+        }
+
         h2 {
             font-size: 2.5rem;
             color: var(--primary-color);
@@ -118,21 +151,16 @@
             margin-bottom: 20px;
             position: relative;
             z-index: 1;
-            background: linear-gradient(to right, #98FF98, #bd93f9);
+            background: linear-gradient(to right, #00ffff, #98ff98);
             -webkit-background-clip: text;
             color: transparent;
         }
 
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--accent-color);
-            }
-            to {
-                text-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--accent-color);
-            }
+        @ keyframes glow {
+            from { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--accent-color); }
+            to { text-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--accent-color); }
         }
 
-        /* Card styling */
         .card {
             background: var(--card-bg);
             border-radius: 15px;
@@ -145,12 +173,30 @@
             overflow: hidden;
         }
 
+        .card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), transparent, rgba(255, 255, 255, 0.05));
+            opacity: 0.3;
+            z-index: -1;
+            transform: rotate(45deg);
+            animation: shine 10s linear infinite;
+        }
+
+        @keyframes shine {
+            from { transform: translate(-30%, -30%) rotate(45deg); }
+            to { transform: translate(30%, 30%) rotate(45deg); }
+        }
+
         .card:hover {
             transform: scale(1.03);
             box-shadow: 0 8px 20px var(--shadow-color);
         }
 
-        /* Info text */
         .info-title {
             font-size: 1.5rem;
             color: var(--accent-color);
@@ -163,82 +209,120 @@
             line-height: 1.6;
             color: #c0c0c0;
         }
+
+        .social-links a {
+            color: var(--accent-color);
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-title {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
     </style>
+
     <script>
-        // Remove loading screen after page load
-        window.onload = function () {
-            document.getElementById('loading-screen').style.display = 'none';
-        };
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.querySelector('.loading-screen').style.display = 'none';
+                document.querySelector('.container').classList.add('visible');
+            }, 10000);
+        });
     </script>
+
 </head>
+
 <body>
-    <!-- Loading Screen -->
-    <div id="loading-screen">
-        <div class="loading-text">Loading...</div>
-        <div class="loading-bar"></div>
+
+<div class="loading-screen">
+    <div class="welcome-text">Welcome</div>
+    <div class="loading-bar"></div>
+</div>
+
+<div class="container">
+    <div class="card">
+        <h2>Dev Info</h2>
+        <div class="content">
+            <p class="info-title">Skills:</p>
+            <p>JavaScript, Go, HTML, CSS</p>
+            <p class="info-title">Experience:</p>
+            <p>3+ years developing web apps and Discord bots, focusing on interactive and dynamic user experiences.</p>
+        </div>
     </div>
 
-    <div class="container">
-        <!-- Dev Info Card -->
-        <div class="card">
-            <h2>Dev Info</h2>
-            <div class="content">
-                <p class="info-title">Skills:</p>
-                <p>JavaScript, Go, HTML, CSS</p>
-                <p class="info-title">Experience:</p>
-                <p>3+ years developing web apps and Discord bots, focusing on interactive and dynamic user experiences.</p>
-            </div>
-        </div>
-
-        <!-- Social Info Card -->
-        <div class="card">
-            <h2>Social Info</h2>
-            <div class="content">
-                <p class="info-title">Connect with me:</p>
-                <div class="social-links">
-                    <a href="https://discord.gg/nJxvU5C38V" target="_blank">Discord</a>
-                    <a href="https://t.me/Asteral1" target="_blank">Telegram</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- More Info Card -->
-        <div class="card">
-            <h2>More Info</h2>
-            <div class="content">
-                <p class="info-title">About Me:</p>
-                <p>A passionate developer who loves creating engaging web applications and bots. Always keen to learn new technologies and improve my skills.</p>
-                <p class="info-title">Interests:</p>
-                <p>Coding, gaming, and exploring new tech.</p>
-            </div>
-        </div>
-
-        <!-- Projects Section -->
-        <div class="card">
-            <h2>My Projects</h2>
-            <div class="project-card">
-                <div class="project-title">Project 1: Voria</div>
-                <p>Discord Moderator bot made with sapphire framework (currently found at <a href="https://github.com/Asteral1/Voria-bot" target="_blank">GitHub</a>)</p>
-            </div>
-            <div class="project-card">
-                <div class="project-title">Project 2: Synthia</div>
-                <p>Discord User Install bot for entertainment on any server.</p>
-            </div>
-            <div class="project-card">
-                <div class="project-title">Project 3: Selfbot</div>
-                <p>Discord selfbot for multipurpose.</p>
-            </div>
-        </div>
-
-        <!-- Pella.app Section -->
-        <div class="card">
-            <h2>Pella.app</h2>
-            <div class="content">
-                <p class="info-title">Hosting Service:</p>
-                <p>Discover the power of pella.app's hosting service! For Minecraft servers or Discord bots, pella.app has the solutions you need to make your digital dreams a reality.</p>
+    <div class="card">
+        <h2>Social Info</h2>
+        <div class="content">
+            <p class="info-title">Connect with me:</p>
+            <div class="social-links">
+                <a href="https://discord.gg/nJxvU5C38V" target="_blank">Discord</a>
+                <a href="https://t.me/Asteral1" target="_blank">Telegram</a>
             </div>
         </div>
     </div>
+
+    <div class="card">
+        <h2>More Info</h2>
+        <div class="content">
+            <p class="info-title">About Me:</p>
+            <p>A passionate developer who loves creating engaging web applications and bots. Always keen to learn new technologies and improve my skills.</p>
+            <p class="info-title">Interests:</p>
+            <p>Coding, gaming, and exploring new tech.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>My Projects</h2>
+        <div class="project-card">
+            <div class="project-title">Project 1: Voria</div>
+            <p>Discord Moderator bot made with sapphire framework (currently found at <a href="https://github.com/Asteral1/Voria-bot" target="_blank">GitHub</a>)</p>
+        </div>
+        <div class="project-card">
+            <div class="project-title">Project 2: Synthia</div>
+            <p>Discord User Install bot for entertainment on any server.</p>
+        </div>
+        <div class="project-card">
+            <div class="project-title">Project 3: Selfbot</div>
+            <p>Discord selfbot for multipurpose.</p>
+        </div>
+        <div class="project-card">
+            <div class="project-title">Project 4: CodeSnippets</div>
+            <p>A web-based tool for sharing and collaborating on code snippets in real-time.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Pella.app</h2>
+        <div class="content">
+            <p class="info-title">Hosting Service:</p>
+            <p>Discover the power of pella.app's hosting service! For Minecraft servers or Discord bots, pella.app has the solutions you need to make your digital dreams a reality.</p>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
-
