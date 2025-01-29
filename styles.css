@@ -48,6 +48,12 @@
   80% { transform: translate(6px, -6px); }
 }
 
+/* Glassmorphism Effect */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 /* Fade-In Animation */
 .fade-in {
   opacity: 0;
