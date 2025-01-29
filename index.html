@@ -4,82 +4,87 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Asteral's Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body class="bg-gradient-to-br from-indigo-900 via-purple-900 to-gray-900 text-white">
   <!-- Loading Screen -->
-  <div class="loading-screen">
-    <div class="loader"></div>
-    <p>Loading Asteral's Universe...</p>
+  <div class="loading-screen fixed inset-0 flex flex-col justify-center items-center bg-gray-900 z-50">
+    <div class="loader border-4 border-t-4 border-gray-200 border-t-blue-500 rounded-full w-12 h-12 animate-spin"></div>
+    <p class="mt-4 text-xl animate-pulse">Loading Asteral's Universe...</p>
   </div>
 
   <!-- Main Content -->
-  <div class="content">
+  <div class="content opacity-0 transition-opacity duration-1000">
     <!-- Header -->
-    <header>
-      <h1 class="glitch" data-text="Asteral's Portfolio">Asteral's Portfolio</h1>
-      <p class="subtitle">Crafting Digital Experiences with Code</p>
+    <header class="text-center py-20 bg-gradient-to-r from-indigo-800 to-purple-800">
+      <h1 class="glitch text-6xl font-bold" data-text="Asteral's Portfolio">Asteral's Portfolio</h1>
+      <p class="subtitle text-2xl mt-4 text-blue-300">Crafting Digital Experiences with Code</p>
     </header>
 
     <!-- About Me Section -->
-    <section id="about" class="fade-in">
-      <h2>About Me</h2>
-      <p>I'm a developer with 3+ years of experience in building web applications and Discord bots. I love creating interactive and dynamic user experiences. Always eager to learn new technologies and improve my skills.</p>
-      <p>Interests: Coding, gaming, and exploring new tech.</p>
+    <section id="about" class="fade-in container mx-auto px-4 py-12">
+      <h2 class="text-4xl font-bold mb-6">About Me</h2>
+      <p class="text-lg mb-4">I'm a developer with 3+ years of experience in building web applications and Discord bots. I love creating interactive and dynamic user experiences. Always eager to learn new technologies and improve my skills.</p>
+      <p class="text-lg">Interests: Coding, gaming, and exploring new tech.</p>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="fade-in">
-      <h2>Skills</h2>
-      <div class="skills-grid">
-        <div class="skill" data-skill="JavaScript">JavaScript</div>
-        <div class="skill" data-skill="Go">Go</div>
-        <div class="skill" data-skill="HTML">HTML</div>
-        <div class="skill" data-skill="CSS">CSS</div>
-        <div class="skill" data-skill="TypeScript">TypeScript</div>
+    <section id="skills" class="fade-in container mx-auto px-4 py-12">
+      <h2 class="text-4xl font-bold mb-6">Skills</h2>
+      <div class="skills-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div class="skill bg-blue-600 text-white text-center py-4 rounded-lg transform transition-transform hover:scale-105">JavaScript</div>
+        <div class="skill bg-blue-600 text-white text-center py-4 rounded-lg transform transition-transform hover:scale-105">Go</div>
+        <div class="skill bg-blue-600 text-white text-center py-4 rounded-lg transform transition-transform hover:scale-105">HTML</div>
+        <div class="skill bg-blue-600 text-white text-center py-4 rounded-lg transform transition-transform hover:scale-105">CSS</div>
+        <div class="skill bg-blue-600 text-white text-center py-4 rounded-lg transform transition-transform hover:scale-105">TypeScript</div>
       </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="fade-in">
-      <h2>My Projects</h2>
-      <div class="projects-grid">
-        <div class="project">
-          <h3>Voria</h3>
-          <p>Discord Moderator bot made with Sapphire framework.</p>
-          <a href="https://github.com/Chris-tian123/Voria-Bot" target="_blank">GitHub</a>
+    <section id="projects" class="fade-in container mx-auto px-4 py-12">
+      <h2 class="text-4xl font-bold mb-6">My Projects</h2>
+      <div class="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="project bg-gray-800 p-6 rounded-lg transform transition-transform hover:scale-105 hover:shadow-2xl">
+          <h3 class="text-2xl font-bold mb-4">Voria</h3>
+          <p class="mb-4">Discord Moderator bot made with Sapphire framework.</p>
+          <a href="https://github.com/Chris-tian123/voria" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">GitHub</a>
         </div>
-        <div class="project">
-          <h3>Synthia</h3>
-          <p>Discord User Install bot for entertainment on any server.</p>
-          <a href="https://github.com/Chris-tian123/Synthia" target="_blank">GitHub</a>
+        <div class="project bg-gray-800 p-6 rounded-lg transform transition-transform hover:scale-105 hover:shadow-2xl">
+          <h3 class="text-2xl font-bold mb-4">Synthia</h3>
+          <p class="mb-4">Discord User Install bot for entertainment on any server.</p>
+          <a href="https://github.com/Chris-tian123/synthia" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">GitHub</a>
         </div>
-        <div class="project">
-          <h3>Selfbot</h3>
-          <p>Discord selfbot for multipurpose.</p>
-          <a href="https://github.com/KrishnaSSH/Selfbot" target="_blank">GitHub</a>
+        <div class="project bg-gray-800 p-6 rounded-lg transform transition-transform hover:scale-105 hover:shadow-2xl">
+          <h3 class="text-2xl font-bold mb-4">Selfbot</h3>
+          <p class="mb-4">Discord selfbot for multipurpose.</p>
+          <a href="https://github.com/KrishnaSSH/Selfbot" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">GitHub</a>
         </div>
-        <div class="project">
-          <h3>Daze-Bot</h3>
-          <p>Custom-Made Discord bot for Daze-freeform app guild.</p>
+        <div class="project bg-gray-800 p-6 rounded-lg transform transition-transform hover:scale-105 hover:shadow-2xl">
+          <h3 class="text-2xl font-bold mb-4">Daze-Bot</h3>
+          <p class="mb-4">Custom-Made Discord bot for Daze-freeform app guild.</p>
         </div>
       </div>
     </section>
 
     <!-- Hosting Service Section -->
-    <section id="hosting" class="fade-in">
-      <h2>Pella.app Hosting Service</h2>
-      <p>Discover the power of pella.app's hosting service! For Minecraft servers or Discord bots, pella.app has the solutions you need to make your digital dreams a reality.</p>
-      <a href="https://pella.app" target="_blank">Visit Pella.app</a>
+    <section id="hosting" class="fade-in container mx-auto px-4 py-12">
+      <h2 class="text-4xl font-bold mb-6">Pella.app Hosting Service</h2>
+      <p class="text-lg mb-4">Discover the power of pella.app's hosting service! For Minecraft servers or Discord bots, pella.app has the solutions you need to make your digital dreams a reality.</p>
+      <a href="https://pella.app" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">Visit Pella.app</a>
     </section>
 
     <!-- Connect Section -->
-    <section id="connect" class="fade-in">
-      <h2>Connect With Me</h2>
-      <div class="social-links">
-        <a href="https://discord.com/users/915158686723358720" target="_blank"><i class="fab fa-discord"></i> Discord</a>
-        <a href="https://t.me/Asteral" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+    <section id="connect" class="fade-in container mx-auto px-4 py-12">
+      <h2 class="text-4xl font-bold mb-6">Connect With Me</h2>
+      <div class="social-links flex justify-center gap-6">
+        <a href="https://discord.com/users/yourdiscordid" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
+          <i class="fab fa-discord"></i> Discord
+        </a>
+        <a href="https://t.me/yourtelegram" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
+          <i class="fab fa-telegram"></i> Telegram
+        </a>
       </div>
     </section>
   </div>
