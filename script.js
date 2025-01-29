@@ -21,4 +21,9 @@ window.addEventListener('load', () => {
   sections.forEach((section) => {
     observer.observe(section);
   });
+
+  // Initialize Particle.js
+  particlesJS.load('particles-js', 'particles.json', () => {
+    console.log('Particles loaded!');
+  });
 });
