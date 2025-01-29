@@ -10,10 +10,15 @@ window.addEventListener('load', () => {
 
   // Add fade-in effect to sections
   const sections = document.querySelectorAll('.fade-in');
-  sections.forEach((section, index) => {
-    setTimeout(() => {
-      section.style.opacity = '1';
-      section.style.transform = 'translateY(0)';
-    }, 300 * (index + 1)); // Staggered fade-in effect
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  sections.forEach((section) => {
+    observer.observe(section);
   });
 });
