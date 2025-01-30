@@ -1,8 +1,11 @@
 /* Live Gradient Background */
 body {
+  margin: 0;
+  padding: 0;
   background: linear-gradient(-45deg, #003333, #006666, #003333, #006666);
   background-size: 400% 400%;
   animation: gradientAnimation 10s ease infinite;
+  min-height: 100vh;
 }
 
 @keyframes gradientAnimation {
